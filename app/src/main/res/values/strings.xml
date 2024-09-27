@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Whack-A-Mole</string>
-    <string name="title">Whack-A-Mole Game</string>
-    <string name="session_score">Session High Score: 0</string>
+    <string name="session_score">High Score: 0</string>
+    <string name="new_game">New Game</string>
 </resources>
