@@ -13,7 +13,27 @@ public class WhackAMoleViewModel extends ViewModel{
 
     private int score;
     private int lives;
+    private long difficulty = 0L;
+    private long nextTime;
+    Handler handler = new Handler(Looper.getMainLooper());
+    private Runnable runnable;
 
+    /**
+     * This increase the difficulty
+     */
+    public void setDifficulty(){
+        nextTime = SystemClock.uptimeMillis() + 1000;
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                difficulty += 1;
+                nextTime += 1000;
+                handler.postAtTime(this, nextTime);
+            }
+        };
+        handler.postAtTime(runnable, nextTime);
+
+    }
 
     public int getScore() {
         return score;
@@ -29,6 +49,10 @@ public class WhackAMoleViewModel extends ViewModel{
 
     public int getLives(){
         return lives;
+    }
+
+    public void loseLives(){
+        lives -= 1;
     }
 
 }
