@@ -55,4 +55,6 @@ public class WhackAMoleViewModel extends ViewModel{
         lives -= 1;
     }
 
+
+
 }
