@@ -8,12 +8,56 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/main_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/title"
+        android:textSize="40sp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/mole_font"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/main_logo_iv"
+        android:layout_width="250dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="60dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/whackamolepic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_title_tv" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/main_high_score_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/session_score"
+        android:textSize="28sp"
+        android:fontFamily="@font/mole_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_logo_iv"
+        >
+    </TextView>
+
+    <Button
+        android:id="@+id/main_new_game_btn"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:text="New Game"
+        android:textSize="24sp"
+        android:fontFamily="@font/mole_font"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_high_score_tv">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
