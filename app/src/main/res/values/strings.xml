@@ -2,4 +2,6 @@
     <string name="app_name">Whack-A-Mole</string>
     <string name="session_score">High Score: 0</string>
     <string name="new_game">New Game</string>
+    <string name="score">Score: 0</string>
+    <string name="lives">Lives:</string>
 </resources>

@@ -13,5 +13,4 @@ public class WhackAMoleViewModel extends ViewModel{
 
     private int score;
     private int lives;
-    private
 }

@@ -9,8 +9,8 @@
     tools:context=".GameActivity">
 
     <TextView
-        android:id="@+id/main_title_tv"
-        android:layout_width="wrap_content"
+        android:id="@+id/game_title_tv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textSize="76sp"
@@ -21,6 +21,68 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/game_score_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        android:textSize="50sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/mole_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_title_tv" />
+
+    <TextView
+        android:id="@+id/game_lives_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lives"
+        android:textSize="40sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="74dp"
+        android:fontFamily="@font/mole_font"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_score_tv" />
+
+    <ImageView
+        android:id="@+id/game_life1_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/full_heart"
+        app:layout_constraintStart_toEndOf="@id/game_lives_tv"
+        app:layout_constraintTop_toBottomOf="@id/game_score_tv">
+    </ImageView>
+
+
+    <ImageView
+        android:id="@+id/game_life2_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/full_heart"
+        app:layout_constraintStart_toEndOf="@id/game_life1_iv"
+        app:layout_constraintTop_toBottomOf="@id/game_score_tv">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_life3_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/full_heart"
+        app:layout_constraintStart_toEndOf="@id/game_life2_iv"
+        app:layout_constraintTop_toBottomOf="@id/game_score_tv">
+    </ImageView>
 
     <ImageView
         android:id="@+id/game_mole1_iv"
