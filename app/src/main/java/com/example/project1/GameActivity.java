@@ -1,6 +1,7 @@
 package com.example.project1;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
@@ -8,9 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 public class GameActivity extends AppCompatActivity {
 
+    private WhackAMoleViewModel viewModel;
     private ImageView mole1;
     private ImageView mole2;
     private ImageView mole3;
@@ -33,6 +36,8 @@ public class GameActivity extends AppCompatActivity {
             return insets;
         });
 
+        viewModel = new ViewModelProvider(this).get(WhackAMoleViewModel.class);
+
         mole1 = findViewById(R.id.game_mole1_iv);
         mole2 = findViewById(R.id.game_mole1_iv);
         mole3 = findViewById(R.id.game_mole1_iv);
@@ -42,6 +47,15 @@ public class GameActivity extends AppCompatActivity {
         mole7 = findViewById(R.id.game_mole1_iv);
         mole8 = findViewById(R.id.game_mole1_iv);
         mole9 = findViewById(R.id.game_mole1_iv);
+
+        mole1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mole1.setImageResource(R.drawable.mole);
+            }
+        });
+
+
 
     }
 }
