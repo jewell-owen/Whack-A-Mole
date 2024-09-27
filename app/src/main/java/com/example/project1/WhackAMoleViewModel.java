@@ -13,4 +13,22 @@ public class WhackAMoleViewModel extends ViewModel{
 
     private int score;
     private int lives;
+
+
+    public int getScore() {
+        return score;
+    }
+
+    public void hitMole(){
+        score += 10;
+    }
+
+    public void setLives(){
+        lives = 3;
+    }
+
+    public int getLives(){
+        return lives;
+    }
+
 }
