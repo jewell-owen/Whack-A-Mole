@@ -8,4 +8,117 @@
     android:background="@drawable/mole_background"
     tools:context=".GameActivity">
 
+    <TextView
+        android:id="@+id/main_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="76sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/mole_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/game_mole1_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_mole2_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintStart_toEndOf="@id/game_mole1_iv"
+        app:layout_constraintEnd_toStartOf="@id/game_mole3_iv"
+        app:layout_constraintTop_toTopOf="parent">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_mole3_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_mole4_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_mole1_iv">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_mole5_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintStart_toEndOf="@id/game_mole1_iv"
+        app:layout_constraintEnd_toStartOf="@id/game_mole3_iv"
+        app:layout_constraintTop_toBottomOf="@id/game_mole2_iv">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_mole6_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_mole3_iv">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_mole7_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_mole4_iv">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_mole8_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintStart_toEndOf="@id/game_mole1_iv"
+        app:layout_constraintEnd_toStartOf="@id/game_mole3_iv"
+        app:layout_constraintTop_toBottomOf="@id/game_mole5_iv">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/game_mole9_iv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/nomole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_mole6_iv">
+    </ImageView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

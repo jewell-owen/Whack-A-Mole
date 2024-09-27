@@ -43,14 +43,14 @@
         android:id="@+id/main_new_game_btn"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginTop="408dp"
+        android:layout_marginTop="550dp"
         android:backgroundTint="@color/red"
         android:fontFamily="@font/mole_font"
         android:text="@string/new_game"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_high_score_tv"></Button>
+        app:layout_constraintTop_toBottomOf="@id/main_high_score_tv">
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
