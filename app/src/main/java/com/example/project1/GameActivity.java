@@ -51,6 +51,9 @@ public class GameActivity extends AppCompatActivity {
         mole1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                if(mole1.get){
+//
+//                }
                 mole1.setImageResource(R.drawable.mole);
             }
         });
