@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.example.project1","l":"ExampleInstrumentedTest"},{"p":"com.example.project1","l":"ExampleUnitTest"},{"p":"com.example.project1","l":"GameActivity"},{"p":"com.example.project1","l":"MainActivity"},{"p":"com.example.project1","l":"WhackAMoleViewModel"}];updateSearchResults();
