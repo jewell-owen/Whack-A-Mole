@@ -13,11 +13,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+/**
+ * MainActivity for the Whack-A-Mole game.
+ * From this screen the user can view their high score or start a new game.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Button newGameBtn;
     private TextView highScoreTextView;  // TextView to display high score
 
+    /**
+     * Called when the activity is first created.
+     * @param savedInstanceState savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         loadHighScore();
 
         newGameBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Called when the button is clicked.
+             * Starts a new game activity and switched to it.
+             * @param view view
+             */
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
@@ -45,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Called when the activity is resumed.
+     * Loads high score on resume.
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -52,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
         loadHighScore();
     }
 
-    // Method to load and display the high score
+    /**
+     * Loads the high score from SharedPreferences and updates the TextView.
+     */
     private void loadHighScore() {
         SharedPreferences prefs = getSharedPreferences("WhackAMolePrefs", MODE_PRIVATE);
         int highScore = prefs.getInt("high_score", 0);
