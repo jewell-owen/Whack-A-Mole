@@ -7,35 +7,101 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.Random;
 
+/**
+ * ViewModel for the Whack-A-Mole game.
+ */
 public class WhackAMoleViewModel extends ViewModel {
 
+    /**
+     * int for score (+10 for every hit mole).
+     */
     private int score = 0;
-    private int lives = 3; // Start with 3 lives
-    private final Random random = new Random();
-    private final Handler handler = new Handler(Looper.getMainLooper());
-    private Runnable moleRunnable;
-    private int currentMole = -1; // -1 means no mole is visible
-    private boolean moleWhacked = false; // Flag to check if mole was whacked
-    private boolean gameEnded = false; // Flag to check if the game has ended
-    private int difficultyLevel = 1; // Starts at level 1
-    private long moleDelay = 1500; // Initial delay of 1.5 seconds between moles
 
+    /**
+     * int for lives (-1 for every missed mole).
+     * Start with 3 lives.
+     */
+    private int lives = 3;
+
+    /**
+     * Random object to generate random numbers.
+     */
+    private final Random random = new Random();
+
+    /**
+     * Handler to schedule the next mole pop-up.
+     */
+    private final Handler handler = new Handler(Looper.getMainLooper());
+
+    /**
+     * Runnable to schedule the next mole pop-up.
+     */
+    private Runnable moleRunnable;
+
+    /**
+     * int for current mole.
+     * -1 means no mole is visible.
+     */
+    private int currentMole = -1;
+
+    /**
+     * boolean flag to check if mole was whacked.
+     */
+    private boolean moleWhacked = false;
+
+    /**
+     * boolean flag to check if the game has ended.
+     */
+    private boolean gameEnded = false;
+
+    /**
+     * int for difficulty level.
+     * Starts at level 1.
+     */
+    private int difficultyLevel = 1;
+
+    /**
+     * long for mole delay.
+     * starts at 1500 or 1.5 seconds
+     */
+    private long moleDelay = 1500;
+
+    /**
+     * Get the current score.
+     * @return this score
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * Get the current mole.
+     * @return this mole
+     */
     public int getCurrentMole() {
         return currentMole;
     }
 
+    /**
+     * Get the current lives.
+     * @return this lives
+     */
     public int getLives() {
         return lives;
     }
 
+    /**
+     * Check if the game has ended.
+     * @return this gameEnded
+     */
     public boolean isGameEnded() {
         return gameEnded;
     }
 
+    /**
+     * Increment the score by 10 if mole is hit.
+     * Then increase difficulty and reset current mole to -1.
+     */
     public void hitMole() {
         if (!gameEnded) {
             score += 10;
@@ -47,6 +113,10 @@ public class WhackAMoleViewModel extends ViewModel {
         }
     }
 
+    /**
+     * Decrement the lives by 1 if mole is missed.
+     * End game if lives = 0.
+     */
     public void loseLives() {
         if (!gameEnded) {
             lives -= 1;
@@ -56,7 +126,9 @@ public class WhackAMoleViewModel extends ViewModel {
         }
     }
 
-    // Increase difficulty by reducing moleDelay and making it harder
+    /**
+     * Increase the difficulty level and adjust the mole delay.
+     */
     private void increaseDifficulty() {
         difficultyLevel++;
 
@@ -66,7 +138,9 @@ public class WhackAMoleViewModel extends ViewModel {
         }
     }
 
-    // Start the game, ensuring moles pop up at regular intervals with increasing difficulty
+    /**
+     * Start the game by scheduling the first mole pop-up.
+     */
     public void startGame() {
         gameEnded = false;
         moleRunnable = new Runnable() {
@@ -90,11 +164,16 @@ public class WhackAMoleViewModel extends ViewModel {
         handler.post(moleRunnable); // Start the first mole pop-up immediately
     }
 
+    /**
+     * Stop the game by removing the mole pop-up.
+     */
     public void stopGame() {
         handler.removeCallbacks(moleRunnable);
     }
 
-    // End the game by stopping the mole popping logic
+    /**
+     * End the game by stopping the mole popping logic.
+     */
     private void endGame() {
         gameEnded = true;
         stopGame();

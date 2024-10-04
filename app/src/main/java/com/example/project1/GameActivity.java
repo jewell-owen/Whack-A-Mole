@@ -16,21 +16,54 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+/**
+ * GameActivity for the Whack-A-Mole game.
+ */
 public class GameActivity extends AppCompatActivity {
 
+    /**
+     * View model for the game.
+     */
     private WhackAMoleViewModel viewModel;
+
+    /**
+     * Array of all the mole ImageViews.
+     */
     private ImageView[] moles;
-    private ImageView[] hearts;  // ImageView array for the hearts (lives)
-    private TextView scoreTextView;  // TextView for displaying the score
+
+    /**
+     * Array of all the heart ImageViews.
+     */
+    private ImageView[] hearts;
+
+    /**
+     * Array of all the heart ImageViews (Lives).
+     */
+    private TextView scoreTextView;
+
+    /**
+     * Array of all the mole ImageViews.
+     */
     private int[] moleIds = {
             R.id.game_mole1_iv, R.id.game_mole2_iv, R.id.game_mole3_iv,
             R.id.game_mole4_iv, R.id.game_mole5_iv, R.id.game_mole6_iv,
             R.id.game_mole7_iv, R.id.game_mole8_iv, R.id.game_mole9_iv
     };
+
+    /**
+     * Array of all the heart ImageViews.
+     */
     private int[] heartIds = {
             R.id.game_life1_iv, R.id.game_life2_iv, R.id.game_life3_iv
     };
 
+    /**
+     * Called when the activity is first created.
+     * Initializes the game and sets up the UI.
+     * Creates the view model to preserve state across orientation changes.
+     * Creates 9 element array for moles and 3 element array for lies
+     * @param savedInstanceState savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +91,12 @@ public class GameActivity extends AppCompatActivity {
             moles[i] = findViewById(moleIds[i]);
             final int index = i;
             moles[i].setOnClickListener(new View.OnClickListener() {
+                /**
+                 * Called when a mole is clicked.
+                 * Checks that the game is still going and the mole that ic clicked is visible.
+                 * Hides the mole and increments the score.
+                 * @param view view
+                 */
                 @Override
                 public void onClick(View view) {
                     if (!viewModel.isGameEnded() && viewModel.getCurrentMole() == index) { // Only whack if this is the active mole
@@ -75,6 +114,9 @@ public class GameActivity extends AppCompatActivity {
         // Set up a periodic task to update the UI based on which mole is active
         final Handler uiHandler = new Handler(Looper.getMainLooper());
         Runnable uiRunnable = new Runnable() {
+            /**
+             * Called every 500 ms to update the UI.
+             */
             @Override
             public void run() {
                 // Check if game has ended
@@ -106,13 +148,17 @@ public class GameActivity extends AppCompatActivity {
         uiHandler.post(uiRunnable);
     }
 
-    // Method to update score in the UI
+    /**
+     * Function to update the score in the UI.
+     */
     private void updateScore() {
         int score = viewModel.getScore();
         scoreTextView.setText("Score: " + score);  // Update the score TextView
     }
 
-    // Method to update lives (hearts) in the UI
+    /**
+     * Function to update the lives in the UI.
+     */
     private void updateLives() {
         int lives = viewModel.getLives();
         for (int i = 0; i < hearts.length; i++) {
@@ -124,7 +170,9 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    // Show a game over message when the game ends
+    /**
+     * Function to show the game over screen and end the game.
+     */
     private void showGameOver() {
         Toast.makeText(this, "Game Over! Your Score: " + viewModel.getScore(), Toast.LENGTH_LONG).show();
 
@@ -133,7 +181,9 @@ public class GameActivity extends AppCompatActivity {
         finish(); // Close the GameActivity and return to the main menu
     }
 
-    // Save the high score using SharedPreferences
+    /**
+     * Function to save the high score using SharedPreferences.
+     */
     private void saveHighScore() {
         SharedPreferences prefs = getSharedPreferences("WhackAMolePrefs", MODE_PRIVATE);
         int highScore = prefs.getInt("high_score", 0);
@@ -146,6 +196,10 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Called when the activity is destroyed.
+     * Stops the game in the view model.
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();

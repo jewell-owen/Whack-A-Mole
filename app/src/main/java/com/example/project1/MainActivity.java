@@ -19,7 +19,9 @@ import androidx.core.view.WindowInsetsCompat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private Button newGameBtn;
+    /**
+     * TextView to display high score.
+     */
     private TextView highScoreTextView;  // TextView to display high score
 
     /**
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        newGameBtn = findViewById(R.id.main_new_game_btn);
+        Button newGameBtn = findViewById(R.id.main_new_game_btn);
         highScoreTextView = findViewById(R.id.main_high_score_tv);  // Initialize high score TextView
 
         // Load and display the high score (on creation)
