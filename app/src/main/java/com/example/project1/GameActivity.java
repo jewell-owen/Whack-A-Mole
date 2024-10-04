@@ -1,6 +1,7 @@
 package com.example.project1;
 
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -76,6 +77,8 @@ public class GameActivity extends AppCompatActivity {
             return insets;
         });
 
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.whack);
+
         viewModel = new ViewModelProvider(this).get(WhackAMoleViewModel.class);
         moles = new ImageView[9];
         hearts = new ImageView[3];  // For displaying lives as hearts
@@ -103,6 +106,7 @@ public class GameActivity extends AppCompatActivity {
                         moles[index].setImageResource(R.drawable.nomole); // Whack it and hide
                         viewModel.hitMole(); // Increment score in ViewModel
                         updateScore(); // Update the UI to reflect new score
+                        mp.start();
                     }
                 }
             });
